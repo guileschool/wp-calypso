@@ -117,7 +117,7 @@ class GoogleLoginButton extends Component {
 			.catch( error => {
 				this.props.recordTracksEvent( 'calypso_login_social_button_failure', {
 					social_account_type: 'google',
-					error: error.error
+					error_message: error.error
 				} );
 			} );
 	}

@@ -56,7 +56,8 @@ class SocialLoginForm extends Component {
 					if ( wpcomError ) {
 						this.props.recordTracksEvent( 'calypso_login_social_signup_failure', {
 							social_account_type: 'google',
-							error: wpcomError.message
+							error_code: wpcomError.code,
+							error_message: wpcomError.message
 						} );
 
 						this.props.errorNotice( wpcomError.message );
@@ -74,7 +75,8 @@ class SocialLoginForm extends Component {
 			} else {
 				this.props.recordTracksEvent( 'calypso_login_social_login_failure', {
 					social_account_type: 'google',
-					error: error.message
+					error_code: error.code,
+					error_message: error.message
 				} );
 
 				this.props.errorNotice( error.message );
