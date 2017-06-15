@@ -3,7 +3,6 @@
  */
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import page from 'page';
 
 /**
  * Internal dependencies
@@ -13,6 +12,7 @@ import { localize } from 'i18n-calypso';
 import {
 	isTwoFactorAuthTypeSupported,
 } from 'state/login/selectors';
+import { recordTracksEvent } from 'state/analytics/actions';
 import { sendSmsCode } from 'state/login/actions';
 import { login } from 'lib/paths';
 
@@ -20,17 +20,20 @@ class TwoFactorActions extends Component {
 	static propTypes = {
 		isAuthenticatorSupported: PropTypes.bool.isRequired,
 		isSmsSupported: PropTypes.bool.isRequired,
+		recordTracksEvent: PropTypes.func.isRequired,
 		sendSmsCode: PropTypes.func.isRequired,
 		translate: PropTypes.func.isRequired,
 		twoFactorAuthType: PropTypes.string.isRequired,
 	};
 
-	sendSmsCode = ( event ) => {
-		event.preventDefault();
+	sendSmsCode = () => {
+		this.props.recordTracksEvent( 'calypso_login_two_factor_switch_to_sms_link_click' );
 
-		page( login( { isNative: true, twoFactorAuthType: 'sms' } ) );
+		this.props.sendSmsCode();
+	};
 
-		this.props.sendSmsCode( );
+	recordAuthenticatorLinkClick = () => {
+		this.props.recordTracksEvent( 'calypso_login_two_factor_switch_to_authenticator_link_click' );
 	};
 
 	render() {
@@ -56,7 +59,10 @@ class TwoFactorActions extends Component {
 
 				{ isSmsAvailable && (
 					<p>
-						<a href="#" onClick={ this.sendSmsCode }>
+						<a
+							href={ login( { isNative: true, twoFactorAuthType: 'sms' } ) }
+							onClick={ this.sendSmsCode }
+						>
 							{ translate( 'Code via text message' ) }
 						</a>
 					</p>
@@ -64,7 +70,10 @@ class TwoFactorActions extends Component {
 
 				{ isAuthenticatorAvailable && (
 					<p>
-						<a href={ login( { isNative: true, twoFactorAuthType: 'authenticator' } ) }>
+						<a
+							href={ login( { isNative: true, twoFactorAuthType: 'authenticator' } ) }
+							onClick={ this.recordAuthenticatorLinkClick }
+						>
 							{ translate( 'Your Authenticator app' ) }
 						</a>
 					</p>
@@ -80,6 +89,7 @@ export default connect(
 		isSmsSupported: isTwoFactorAuthTypeSupported( state, 'sms' ),
 	} ),
 	{
+		recordTracksEvent,
 		sendSmsCode,
 	}
 )( localize( TwoFactorActions ) );
