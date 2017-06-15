@@ -102,7 +102,7 @@ class PublicizeActionsList extends PureComponent {
 		);
 	}
 
-	renderFooterSectionItem( {
+	renderActionItem( {
 		ID: actionId,
 		connectionName,
 		message,
@@ -193,7 +193,7 @@ class PublicizeActionsList extends PureComponent {
 
 	renderActionsList = ( actions ) => (
 			<div>
-				{ actions.map( ( item, index ) => this.renderFooterSectionItem( item, index ) ) }
+				{ actions.map( ( item, index ) => this.renderActionItem( item, index ) ) }
 			</div>
 		);
 
