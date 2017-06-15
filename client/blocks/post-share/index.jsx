@@ -492,12 +492,11 @@ class PostShare extends Component {
 				</div>
 
 				{ this.renderUpgradeToBusinessPlanNudge() }
-				{ this.props.hasRepublicizeSchedulingFeature &&
-					<ActionsList
-						siteId={ siteId }
-						postId={ postId }
-					/>
-				}
+
+				<ActionsList
+					siteId={ siteId }
+					postId={ postId }
+				/>
 			</div>
 		);
 	}
