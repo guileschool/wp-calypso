@@ -291,7 +291,7 @@ class PostShare extends Component {
 		);
 	}
 
-	renderUpgradeToGetSchedulingNudge() {
+	renderUpgradeToBusinessPlanNudge() {
 		if (
 			this.props.hasRepublicizeSchedulingFeature ||
 			! isEnabled( 'publicize-scheduling' )
@@ -491,7 +491,7 @@ class PostShare extends Component {
 					{ this.renderConnectionsSection() }
 				</div>
 
-				{ this.renderUpgradeToGetSchedulingNudge() }
+				{ this.renderUpgradeToBusinessPlanNudge() }
 				{ this.props.hasRepublicizeSchedulingFeature &&
 					<ActionsList
 						siteId={ siteId }
