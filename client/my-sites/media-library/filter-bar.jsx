@@ -38,7 +38,8 @@ export class MediaLibraryFilterBar extends Component {
 		basePath: '/media',
 		onFilterChange: noop,
 		onSearch: noop,
-		translate: identity
+		translate: identity,
+		source: '',
 	};
 
 	getSearchPlaceholderText() {

@@ -26,6 +26,7 @@ export default React.createClass( {
 		site: PropTypes.object,
 		filter: PropTypes.string,
 		source: PropTypes.string,
+		modal: PropTypes.bool,
 		sliderPositionCount: PropTypes.number,
 		onMediaScaleChange: React.PropTypes.func,
 		onAddMedia: PropTypes.func,
@@ -44,6 +45,8 @@ export default React.createClass( {
 			onAddMedia: () => {},
 			sliderPositionCount: 100,
 			sticky: false,
+			source: '',
+			modal: true,
 		};
 	},
 
@@ -112,16 +115,14 @@ export default React.createClass( {
 	},
 
 	renderSecondaryButtons() {
-		if ( this.props.source !== '' ) {
-			return;
-		}
-
 		return (
 			<MediaModalSecondaryActions
 				selectedItems={ this.props.selectedItems }
 				onViewDetails={ this.props.onViewDetails }
 				onDelete={ this.props.onDeleteItem }
 				site={ this.props.site }
+				source={ this.props.source }
+				modal={ this.props.modal }
 				view={ 'LIST' }
 			/>
 		);

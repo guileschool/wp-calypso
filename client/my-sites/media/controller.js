@@ -19,6 +19,7 @@ module.exports = {
 		var MediaComponent = require( 'my-sites/media/main' ),
 			filter = context.params.filter,
 			search = context.query.s,
+			source = context.query.source,
 			baseAnalyticsPath = route.sectionify( context.path );
 
 		const state = context.store.getState();
@@ -38,8 +39,9 @@ module.exports = {
 		renderWithReduxStore(
 			React.createElement( MediaComponent, {
 				selectedSite,
-				filter: filter,
-				search: search
+				filter,
+				search,
+				source,
 			} ),
 			document.getElementById( 'primary' ),
 			context.store

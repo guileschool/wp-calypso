@@ -49,12 +49,14 @@ const MediaLibraryContent = React.createClass( {
 		onAddMedia: React.PropTypes.func,
 		onMediaScaleChange: React.PropTypes.func,
 		onEditItem: React.PropTypes.func,
+		modal: React.PropTypes.bool,
 	},
 
 	getDefaultProps: function() {
 		return {
 			mediaValidationErrors: Object.freeze( {} ),
-			onAddMedia: noop
+			onAddMedia: noop,
+			modal: true,
 		};
 	},
 
@@ -247,6 +249,7 @@ const MediaLibraryContent = React.createClass( {
 						site={ this.props.site }
 						filter={ this.props.filter }
 						source={ this.props.source }
+						modal={ this.props.modal }
 						onMediaScaleChange={ this.props.onMediaScaleChange }
 						onAddMedia={ this.props.onAddMedia }
 						onAddAndEditImage={ this.props.onAddAndEditImage }

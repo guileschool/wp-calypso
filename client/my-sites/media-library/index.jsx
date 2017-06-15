@@ -39,7 +39,8 @@ module.exports = React.createClass( {
 		fullScreenDropZone: React.PropTypes.bool,
 		containerWidth: React.PropTypes.number,
 		single: React.PropTypes.bool,
-		scrollable: React.PropTypes.bool
+		scrollable: React.PropTypes.bool,
+		modal: React.PropTypes.bool,
 	},
 
 	getDefaultProps: function() {
@@ -48,6 +49,8 @@ module.exports = React.createClass( {
 			onAddMedia: () => {},
 			onScaleChange: () => {},
 			scrollable: false,
+			modal: true,
+			source: '',
 		};
 	},
 
@@ -129,6 +132,7 @@ module.exports = React.createClass( {
 				containerWidth={ this.props.containerWidth }
 				single={ this.props.single }
 				scrollable={ this.props.scrollable }
+				modal={ this.props.modal }
 				onAddMedia={ this.onAddMedia }
 				onAddAndEditImage={ this.props.onAddAndEditImage }
 				onMediaScaleChange={ this.props.onScaleChange }
