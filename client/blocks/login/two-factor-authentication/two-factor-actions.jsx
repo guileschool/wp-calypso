@@ -3,6 +3,7 @@
  */
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import page from 'page';
 
 /**
  * Internal dependencies
@@ -29,11 +30,15 @@ class TwoFactorActions extends Component {
 	sendSmsCode = () => {
 		this.props.recordTracksEvent( 'calypso_login_two_factor_switch_to_sms_link_click' );
 
+		page( login( { isNative: true, twoFactorAuthType: 'sms' } ) );
+
 		this.props.sendSmsCode();
 	};
 
 	recordAuthenticatorLinkClick = () => {
 		this.props.recordTracksEvent( 'calypso_login_two_factor_switch_to_authenticator_link_click' );
+
+		page( login( { isNative: true, twoFactorAuthType: 'authenticator' } ) );
 	};
 
 	render() {
@@ -60,7 +65,7 @@ class TwoFactorActions extends Component {
 				{ isSmsAvailable && (
 					<p>
 						<a
-							href={ login( { isNative: true, twoFactorAuthType: 'sms' } ) }
+							href="#"
 							onClick={ this.sendSmsCode }
 						>
 							{ translate( 'Code via text message' ) }
@@ -71,7 +76,7 @@ class TwoFactorActions extends Component {
 				{ isAuthenticatorAvailable && (
 					<p>
 						<a
-							href={ login( { isNative: true, twoFactorAuthType: 'authenticator' } ) }
+							href="#"
 							onClick={ this.recordAuthenticatorLinkClick }
 						>
 							{ translate( 'Your Authenticator app' ) }
