@@ -10,7 +10,7 @@ import { localize } from 'i18n-calypso';
  * Internal dependencies
  */
 import DocumentHead from 'components/data/document-head';
-import LoginFooter from './footer';
+import LoginActions from './login-actions';
 import Main from 'components/main';
 import LocaleSuggestions from 'components/locale-suggestions';
 import LoginBlock from 'blocks/login';
@@ -89,7 +89,7 @@ export class Login extends React.Component {
 							/>
 						</div>
 
-						<LoginFooter />
+						<LoginActions />
 					</div>
 				</Main>
 
