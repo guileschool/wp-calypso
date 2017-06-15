@@ -85,7 +85,7 @@ class SocialLoginForm extends Component {
 	};
 
 	trackGoogleLogin = () => {
-		this.props.recordTracksEvent( 'calypso_social_login_form_click', {
+		this.props.recordTracksEvent( 'calypso_login_social_button_click', {
 			social_account_type: 'google'
 		} );
 	};
