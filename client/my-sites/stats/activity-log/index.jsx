@@ -322,10 +322,11 @@ class ActivityLog extends Component {
 			siteId,
 		} = this.props;
 		const logs = this.props.logs;
+
 		const logsGroupedByDate = map(
 			groupBy(
 				logs.map( this.update_logs, this ),
-				log => moment( log.timestamp ).startOf( 'day' ).format( 'x' )
+				log => moment( log.ts_site ).startOf( 'day' ).format( 'x' )
 			),
 			( daily_logs, timestamp ) => (
 				<ActivityLogDay
