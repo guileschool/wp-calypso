@@ -458,7 +458,7 @@ class PostShare extends Component {
 					{ this.renderConnectionsSection() }
 				</div>
 
-				<ActionsList { ...this.props } />
+				{ isEnabled( 'publicize-scheduling' ) && <ActionsList { ...this.props } /> }
 			</div>
 		);
 	}
