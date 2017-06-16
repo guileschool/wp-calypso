@@ -383,7 +383,7 @@ export default connect(
 			rewindStatusError: getRewindStatusError( state, siteId ),
 
 			// FIXME: Testing only
-			isPressable: true,
+			isPressable: get( state.activityLog.rewindStatus, [ siteId, 'isPressable' ], false ),
 			logs: get( state, [
 				'activityLog',
 				'logItems',
