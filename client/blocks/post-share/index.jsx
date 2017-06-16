@@ -226,7 +226,7 @@ class PostShare extends Component {
 		} = this.props;
 
 		const shareButton = <Button
-			className="post-share__button"
+			className="post-share__share-button"
 			primary
 			onClick={ this.sharePost }
 			disabled={ this.isDisabled() }
