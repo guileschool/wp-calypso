@@ -30,6 +30,7 @@ module.exports = React.createClass( {
 		filter: React.PropTypes.string,
 		enabledFilters: React.PropTypes.arrayOf( React.PropTypes.string ),
 		search: React.PropTypes.string,
+		source: React.PropTypes.string,
 		onAddMedia: React.PropTypes.func,
 		onFilterChange: React.PropTypes.func,
 		onSearch: React.PropTypes.func,
@@ -47,6 +48,7 @@ module.exports = React.createClass( {
 			onAddMedia: () => {},
 			onScaleChange: () => {},
 			scrollable: false,
+			source: '',
 		};
 	},
 
@@ -124,6 +126,7 @@ module.exports = React.createClass( {
 				filter={ this.props.filter }
 				filterRequiresUpgrade={ this.filterRequiresUpgrade() }
 				search={ this.props.search }
+				source={ this.props.source }
 				containerWidth={ this.props.containerWidth }
 				single={ this.props.single }
 				scrollable={ this.props.scrollable }
@@ -161,6 +164,8 @@ module.exports = React.createClass( {
 					enabledFilters={ this.props.enabledFilters }
 					search={ this.props.search }
 					onFilterChange={ this.props.onFilterChange }
+					source={ this.props.source }
+					onSourceChange={ this.props.onSourceChange }
 					onSearch={ this.doSearch } />
 				{ content }
 			</div>
