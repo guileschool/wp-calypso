@@ -36,6 +36,7 @@ module.exports = React.createClass( {
 		onSearch: React.PropTypes.func,
 		onScaleChange: React.PropTypes.func,
 		onEditItem: React.PropTypes.func,
+		onCopyItem: React.PropTypes.func,
 		fullScreenDropZone: React.PropTypes.bool,
 		containerWidth: React.PropTypes.number,
 		single: React.PropTypes.bool,
@@ -135,6 +136,7 @@ module.exports = React.createClass( {
 				modal={ this.props.modal }
 				onAddMedia={ this.onAddMedia }
 				onAddAndEditImage={ this.props.onAddAndEditImage }
+				onCopyItem={ this.props.onCopyItem }
 				onMediaScaleChange={ this.props.onScaleChange }
 				selectedItems={ this.props.mediaLibrarySelectedItems }
 				onDeleteItem={ this.props.onDeleteItem }

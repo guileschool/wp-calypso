@@ -61,6 +61,19 @@ class Media extends Component {
 		page( url );
 	};
 
+	handleCopyItem = () => {
+		const site = this.props.selectedSite;
+		const items = MediaLibrarySelectedStore.getAll( site.ID );
+		const targetSource = this.props.source;
+
+		this.onSourceChange( '' );
+		this.setState( {
+			selectedImages: [],
+		}, () => {
+			MediaActions.addExternal( site.ID, items, targetSource );
+		} );
+	};
+
 	openDetailsModalForASingleImage = ( image ) => {
 		this.setState( {
 			currentDetail: 0,
@@ -258,6 +271,7 @@ class Media extends Component {
 							onEditItem={ this.openDetailsModalForASingleImage }
 							onViewDetails={ this.openDetailsModalForAllSelected }
 							onDeleteItem={ this.handleDeleteMediaEvent }
+							onCopyItem={ this.handleCopyItem }
 							modal={ false }
 							source={ this.props.source }
 							onSourceChange={ this.onSourceChange }

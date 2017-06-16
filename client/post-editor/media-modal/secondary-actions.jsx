@@ -29,6 +29,7 @@ class MediaModalSecondaryActions extends Component {
 		disabled: PropTypes.bool,
 		onDelete: PropTypes.func,
 		onViewDetails: PropTypes.func,
+		onCopyItem: PropTypes.func,
 		source: React.PropTypes.string,
 		modal: React.PropTypes.bool,
 	};
@@ -51,6 +52,7 @@ class MediaModalSecondaryActions extends Component {
 
 			onDelete,
 			onViewDetails,
+			onCopyItem,
 		} = this.props;
 
 		const buttons = [];
@@ -62,7 +64,7 @@ class MediaModalSecondaryActions extends Component {
 					text: translate( 'Copy to library' ),  // XXX check text
 					disabled: disabled,
 					primary: true,
-					onClick: onViewDetails
+					onClick: onCopyItem
 				} );
 			}
 

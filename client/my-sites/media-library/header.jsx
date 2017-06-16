@@ -30,6 +30,7 @@ export default React.createClass( {
 		sliderPositionCount: PropTypes.number,
 		onMediaScaleChange: React.PropTypes.func,
 		onAddMedia: PropTypes.func,
+		onCopyItem: React.PropTypes.func,
 		sticky: React.PropTypes.bool,
 	},
 
@@ -120,6 +121,7 @@ export default React.createClass( {
 				selectedItems={ this.props.selectedItems }
 				onViewDetails={ this.props.onViewDetails }
 				onDelete={ this.props.onDeleteItem }
+				onCopyItem={ this.props.onCopyItem }
 				site={ this.props.site }
 				source={ this.props.source }
 				modal={ this.props.modal }
