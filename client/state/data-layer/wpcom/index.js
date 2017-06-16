@@ -3,7 +3,6 @@
  */
 import { mergeHandlers } from 'state/action-watchers/utils';
 import accountRecovery from './account-recovery';
-import activity from './activity';
 import activityLog from './activity-log';
 import comments from './comments';
 import me from './me';
@@ -19,7 +18,6 @@ import login2fa from './login-2fa';
 
 export const handlers = mergeHandlers(
 	accountRecovery,
-	activity,
 	activityLog,
 	comments,
 	me,
